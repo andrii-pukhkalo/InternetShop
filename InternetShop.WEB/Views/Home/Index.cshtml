@@ -1,0 +1,26 @@
+﻿@model IEnumerable<InternetShop.WEB.Models.ProductViewModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                <p>Название</p>
+            </th>
+            <th>
+                <p>Цена</p>
+            </th>
+        </tr>
+
+        @foreach (InternetShop.WEB.Models.ProductViewModel product in Model)
+        {
+            <tr>
+                <td><p>@product.Name</p></td>
+                <td><p>@product.Price</p></td>
+            </tr>
+
+        }
+    </table>
+</div>

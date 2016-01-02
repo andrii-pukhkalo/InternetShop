@@ -18,17 +18,18 @@ namespace InternetShop.BLL.Services
 
         public void CreateProduct(ProductDTO productDto)
         {
-            Product product = new Product
-            {
-                Name = productDto.Name
-            };
+            Product product = new Product { Name = productDto.Name };
 
             Database.Products.Create(product);
         }
 
         public IEnumerable<ProductDTO> GetProducts()
         {
-            Mapper.CreateMap<Product, ProductDTO>();
+            Mapper.CreateMap<Product, ProductDTO>()
+                  .ForMember("Price", opt => opt.MapFrom(src => src.Details.Price));
+
+    //        IEnumerable<Product> prd = Database.Products.GetAll();
+    //        return new List<ProductDTO>();
             return Mapper.Map<IEnumerable<Product>, List<ProductDTO>>(Database.Products.GetAll());
         }
 
