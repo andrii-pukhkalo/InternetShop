@@ -11,6 +11,7 @@ namespace InternetShop.BLL.Interfaces
     {
         void CreateProduct(ProductDTO productDto);
         IEnumerable<ProductDTO> GetProducts();
+        ProductDTO GetProductById(int id);
         void Dispose();
     }
 }

@@ -17,8 +17,9 @@
         @foreach (InternetShop.WEB.Models.ProductViewModel product in Model)
         {
             <tr>
-                <td><p>@product.Name</p></td>
+                <td><p>@Html.ActionLink(@product.Name, "Details", new { id = product.Id })</p></td>
                 <td><p>@product.Price</p></td>
+
             </tr>
 
         }

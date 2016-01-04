@@ -3,6 +3,7 @@ using InternetShop.DAL.Entities;
 using InternetShop.DAL.Interfaces;
 using InternetShop.DAL.EF;
 using System.Linq;
+using System;
 
 namespace InternetShop.DAL.Repositories
 {
@@ -23,6 +24,11 @@ namespace InternetShop.DAL.Repositories
         public IEnumerable<Product> GetAll()
         {
             return db.Products.Include("Details").ToList();
+        }
+
+        public Product GetById(int id)
+        {
+            return db.Products.Find(id);
         }
     }
 }

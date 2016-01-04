@@ -26,5 +26,10 @@ namespace InternetShop.DAL.Repositories
         {
             return db.ProductDetails;
         }
+
+        public ProductDetails GetById(int id)
+        {
+            return db.ProductDetails.Find(id);
+        }
     }
 }

@@ -28,6 +28,11 @@ namespace InternetShop.BLL.Services
             return Mapper.Map<IEnumerable<Product>, List<ProductDTO>>(Database.Products.GetAll());
         }
 
+        public ProductDTO GetProductById(int id) {
+            return Mapper.Map<Product, ProductDTO>
+                (Database.Products.GetById(id));
+        }
+
         public void Dispose()
         {
             Database.Dispose();

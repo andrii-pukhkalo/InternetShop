@@ -21,19 +21,17 @@ namespace InternetShop.WEB.Controllers
 
         public ActionResult Index()
         {
-            var products        = Mapper.Map<IEnumerable<ProductDTO>, 
-                                             IList<ProductViewModel>>(productService.GetProducts());
+            var products = Mapper.Map<IEnumerable<ProductDTO>, IList<ProductViewModel>>
+                                    (productService.GetProducts());
 
             return View(products);
         }
 
-        public ActionResult Products() {
-            EFUnitOfWork ouw = new EFUnitOfWork("InternetShop");
+        public ActionResult Details(int id) {
+            var product = Mapper.Map<ProductDTO, ProductViewModel>
+                                    (productService.GetProductById(id));
 
-            IEnumerable<Product> products = ouw.Products.GetAll();
-
-            return View();
+            return View(product);
         }
-
     }
 }

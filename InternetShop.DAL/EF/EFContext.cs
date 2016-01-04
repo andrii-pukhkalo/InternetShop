@@ -22,6 +22,7 @@ namespace InternetShop.DAL.EF
         }
 
         public EFContext() : base("InternetShop") { }
+
     }
 
     //public class StoreDbInitializer : DropCreateDatabaseIfModelChanges<EFContext>

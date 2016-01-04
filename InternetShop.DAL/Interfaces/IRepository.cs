@@ -10,5 +10,6 @@ namespace InternetShop.DAL.Interfaces
     {
         IEnumerable<T> GetAll();
         void Create(T item);
+        T GetById(int id);
     }
 }
