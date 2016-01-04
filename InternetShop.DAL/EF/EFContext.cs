@@ -10,6 +10,7 @@ namespace InternetShop.DAL.EF
     {
         public DbSet<Product>           Products        { get; set; }
         public DbSet<ProductDetails>    ProductDetails  { get; set; }
+        public DbSet<Category> Categories               { get; set; }
 
         //static EFContext()
         //{
@@ -19,6 +20,8 @@ namespace InternetShop.DAL.EF
             : base(connectionString)
         {
         }
+
+        public EFContext() : base("InternetShop") { }
     }
 
     //public class StoreDbInitializer : DropCreateDatabaseIfModelChanges<EFContext>

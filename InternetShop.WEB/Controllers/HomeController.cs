@@ -5,6 +5,8 @@ using InternetShop.BLL.DTO;
 using InternetShop.WEB.Models;
 using System.Collections;
 using System.Collections.Generic;
+using InternetShop.DAL.Repositories;
+using InternetShop.DAL.Entities;
 
 namespace InternetShop.WEB.Controllers
 {
@@ -19,13 +21,18 @@ namespace InternetShop.WEB.Controllers
 
         public ActionResult Index()
         {
-            Mapper.CreateMap<ProductDTO, ProductViewModel>();
-
-            //IEnumerable<ProductDTO> prd = productService.GetProducts();
-            var products = Mapper.Map<IEnumerable<ProductDTO>, IList<ProductViewModel>>(productService.GetProducts());
+            var products        = Mapper.Map<IEnumerable<ProductDTO>, 
+                                             IList<ProductViewModel>>(productService.GetProducts());
 
             return View(products);
-            //return View();
+        }
+
+        public ActionResult Products() {
+            EFUnitOfWork ouw = new EFUnitOfWork("InternetShop");
+
+            IEnumerable<Product> products = ouw.Products.GetAll();
+
+            return View();
         }
 
     }

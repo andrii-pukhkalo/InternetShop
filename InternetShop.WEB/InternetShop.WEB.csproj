@@ -145,6 +145,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutoMapperConfig .cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
@@ -207,6 +208,10 @@
     <ProjectReference Include="..\InternetShop.BLL\InternetShop.BLL.csproj">
       <Project>{49e89d34-4fb8-4a50-920a-247bc36f5327}</Project>
       <Name>InternetShop.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InternetShop.DAL\InternetShop.DAL.csproj">
+      <Project>{7d534000-c46b-4a13-9a40-6deb2752e0f3}</Project>
+      <Name>InternetShop.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -49,7 +49,7 @@ namespace InternetShop.WEB.App_Start
             //  var kernel = new StandardKernel();
 
             //  стало
-            var modules = new INinjectModule[] { new ServiceModule("DefaultConnection") };
+            var modules = new INinjectModule[] { new ServiceModule("InternetShop") };
             var kernel = new StandardKernel(modules);
 
             try

@@ -2,6 +2,7 @@
 using InternetShop.DAL.Entities;
 using InternetShop.DAL.Interfaces;
 using InternetShop.DAL.EF;
+using System.Linq;
 
 namespace InternetShop.DAL.Repositories
 {
@@ -21,7 +22,7 @@ namespace InternetShop.DAL.Repositories
 
         public IEnumerable<Product> GetAll()
         {
-            return db.Products;
+            return db.Products.Include("Details").ToList();
         }
     }
 }
